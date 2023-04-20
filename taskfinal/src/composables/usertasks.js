@@ -15,7 +15,7 @@ export default function useUserTasks(){
         usertasks.value = response.data.data;
     };
     const getUsers = async() => {
-        const response = await axios.get("users",{ headers: {"Authorization" : "Bearer 1|Y0EHoXphnFvJlXpgefPDJUntdoJ4PDB2IJbNME5V"} });
+        const response = await axios.get("users");
         users.value = response.data.data;
     };
     const getUserTask = async(id) => {

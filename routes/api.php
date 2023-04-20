@@ -23,14 +23,15 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'login')->name('login');
 });
 Route::group(['prefix' => Null], function(){
+    Route::get('/users', [AuthController::class,'index'])->name('index');
     Route::apiResource('tasks', TasksController::class);
     Route::apiResource('statuses', StatusController::class);
     Route::apiResource('usertasks', UserTasksController::class);
 });
 
-Route::middleware('auth:sanctum')->group(function() {
-    Route::get('/users', [AuthController::class,'index'])->name('index');
-    // Route::apiResource('statuses', StatusController::class);
-    // Route::apiResource('tasks', TasksController::class);
-    // Route::apiResource('usertasks', UserTasksController::class);
-});
+// Route::middleware('auth:sanctum')->group(function() {
+//     Route::get('/users', [AuthController::class,'index'])->name('index');
+//     Route::apiResource('statuses', StatusController::class);
+//     Route::apiResource('tasks', TasksController::class);
+//     Route::apiResource('usertasks', UserTasksController::class);
+// });
